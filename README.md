@@ -104,3 +104,34 @@ To apply the changes:
 ```
 kubectl apply -f role.yml
 ```
+To get system Kubectl Secret Token 
+```
+$ kubectl -n kube-system get secret | findstr admin-user
+```
+
+To get the token password to login Kubernetes Dashboard
+```
+ $ kubectl -n kube-system describe secret <Token from above command>
+```
+> Copy and keep the output token from above command safe in text file for logging into Dashboard
+
+To Download Dashboard
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml
+```
+
+If you like charts and graphs so also add these as well:
+```
+$ kubectl create -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/influxdb.yaml
+$ kubectl create -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/heapster.yaml
+$ kubectl create -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/grafana.yaml
+```
+
+Start K8s Dashboard
+```
+$ kubectl proxy
+```
+
+Open the Link below: 
+http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/login
+
