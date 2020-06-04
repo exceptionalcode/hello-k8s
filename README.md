@@ -8,6 +8,7 @@ This tutorial provides an overview of different kind of features and functionali
 * [What is Container Orchestration](#what-is-container-orchestration)
 * [Why do we need Container Orchestration](#why-do-we-need-container-orchestration)
 * [Prerequisites](#Prerequisites)
+* [Installation](#Installation)
 
 
 ## What is Container Orchestration
@@ -28,3 +29,12 @@ Container orchestration is used to automate the following task in individual con
 
 ## Prerequisites
 One who wants to understand Kubernetes should have an understating of how the Docker works, how the Docker images are created, and how they work as a standalone unit. it would help if the readers have some exposure to Linux.
+
+
+## Installation
+To work on kubernetes, Docker must be install on the machine. This installation is done targeting Windows OS.</br>
+The following steps for Installation:
+
+* Download and Install Docker Desktop for Windows [Installation Guide](https://docs.docker.com/docker-for-windows/install/)
+* Start Docker Desktop 
+* Start Kubernetes by enabling Kubernetes
