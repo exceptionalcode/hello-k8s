@@ -1,4 +1,10 @@
-# kubernetes Cheat Sheet
+<h1 align="center">
+  <br>
+  <a><img src="images/logo.png" height="200" widht="150"></a>
+  <br>
+  Kubernetes Cheat Sheet
+  <br>
+</h1>
 It is an open source system which helps in creating and managing containerization of application.
 It allows you to deploy and manage multi-container applications at scale. While in practice Kubernetes is most often used with Docker, the most popular containerization platform.</br> 
 This tutorial provides an overview of different kind of features and functionalities of Kubernetes.
