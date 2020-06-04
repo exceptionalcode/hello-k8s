@@ -59,3 +59,48 @@ Test to ensure the version of kubectl is the same as downloaded:
 ```
 $ kubectl version --client
 ```
+
+
+### Kuberneter Dashboard
+Create File user.yml 
+```
+$ nodepad user.yml
+```
+Paste the content below 
+```
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: admin-user
+  namespace: kube-system
+```
+To apply the changes:
+```
+kubectl apply -f user.yml
+```
+
+
+Create role.yml
+```
+$ nodepad role.yml
+```
+Paste the content below
+```
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: admin-user
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: admin-user
+  namespace: kube-system
+```
+
+To apply the changes:
+```
+kubectl apply -f role.yml
+```
