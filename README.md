@@ -44,3 +44,5 @@ The following steps for Installation:
 * Download and Install Docker Desktop for Windows [Installation Guide](https://docs.docker.com/docker-for-windows/install/)
 * Start Docker Desktop 
 * Start Kubernetes by enabling Kubernetes
+
+ <a><img src="images/dd_setting.png"></a>
