@@ -132,6 +132,11 @@ Start K8s Dashboard
 $ kubectl proxy
 ```
 
-Open the Link below: 
+Open the Link below: </br>
 http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/login
+> Use the saved token to login
 
+<a><img src="images/kubernetes_login.png"></a>
+
+### Kuberneters Dashboard
+<a><img src="images/kubernetes_home.png"></a>
