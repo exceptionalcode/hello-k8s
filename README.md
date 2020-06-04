@@ -46,3 +46,16 @@ The following steps for Installation:
 * Start Kubernetes by enabling Kubernetes
 
  <a><img src="images/dd_setting.png"></a>
+
+### Download Kubectl for Windows
+Run below command from windows powershell
+```
+$ curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.18.0/bin/windows/amd64/kubectl.exe
+```
+It will download a kubectl.exe file place it any where on your machine directory.
+Add the binary in to your PATH.(Env Variable)
+
+Test to ensure the version of kubectl is the same as downloaded:
+```
+$ kubectl version --client
+```
