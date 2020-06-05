@@ -2,7 +2,7 @@
   <br>
   <a><img src="images/logo.png" height="200" widht="150"></a>
   <br>
-  Hello K8s
+  Hello Kubernetes
   <br>
 </h1>
 It is an open source system which helps in creating and managing containerization of application.
