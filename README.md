@@ -191,3 +191,9 @@ The volumes that are created through Kubernetes is not limited to any container.
 
 ### Storage Classes
 A StorageClass provides a way for administrators to describe the “classes” of storage they offer. Different classes might map to quality-of-service levels, or to backup policies, or to arbitrary policies determined by the cluster administrators.
+
+### Daemon Set
+Let's say whenever we add a node in the cluster and want few containers to be pre loaded Deamon set does it for you.
+* running a cluster storage daemon on every node
+* running a logs collection daemon on every node
+* running a node monitoring daemon on every node
