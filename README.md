@@ -13,8 +13,9 @@ This tutorial provides an overview of different kind of features and functionali
 ## Table of Contents
 * [What is Container Orchestration](#what-is-container-orchestration)
 * [Why do we need Container Orchestration](#why-do-we-need-container-orchestration)
-* [Prerequisites](#Prerequisites)
-* [Installation](#Installation)
+* [Prerequisites](#prerequisites)
+* [Installation](#installation)
+* [Kuberneter Dashboard](#kuberneter-dashboard)
 
 
 ## What is Container Orchestration
@@ -61,7 +62,7 @@ $ kubectl version --client
 ```
 
 
-### Kuberneter Dashboard
+## Kubernetes Dashboard
 Create File user.yml 
 ```
 $ nodepad user.yml
@@ -138,5 +139,55 @@ http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kube
 
 <a><img src="images/kubernetes_login.png"></a>
 
-### Kuberneters Dashboard
+### Kuberneters Dashboard Page
 <a><img src="images/kubernetes_home.png"></a>
+
+**Check Kubernetes Pods**
+```
+$ kubectl get nodes
+```
+```
+NAME             STATUS   ROLES    AGE    VERSION
+docker-desktop   Ready    master   4d5h   v1.16.6-beta.0
+```
+Here one master node will be up and running
+
+### Cluster Roles
+There are 60 Roles available for K8s Dashboard to access, you can assign in above role.yml while making it up.
+
+### Kube Namespaces
+Logical segregation of application, you can segregate on the basis of teams or application in your organization.
+```
+$ kubectl get pods
+```
+> No resources found in default namespace.
+```
+$ kubectl get pods -n kube-system
+
+NAME                                     READY   STATUS    RESTARTS   AGE
+coredns-5644d7b6d9-6jrbs                 1/1     Running   0          4d6h
+coredns-5644d7b6d9-nbwxl                 1/1     Running   0          4d6h
+etcd-docker-desktop                      1/1     Running   0          4d6h
+kube-apiserver-docker-desktop            1/1     Running   0          4d6h
+kube-controller-manager-docker-desktop   1/1     Running   1          4d6h
+kube-proxy-cst4f                         1/1     Running   0          4d6h
+kube-scheduler-docker-desktop            1/1     Running   0          4d6h
+storage-provisioner                      1/1     Running   0          4d6h
+vpnkit-controller                        1/1     Running   0          4d6h
+```
+> Above you can see in the namespace **kube-system** these multipe pods are running.\
+> **Note :** By default if you not specify anything it will go into **default** namespace.
+
+### Nodes
+Inside Nodes section you can check all node system level information i.e CPU, Memory Utilization, Resource Information and Node Condition.
+
+<a><img src="images/node-allocation.png"></a>
+
+### Persistent Volume
+A Volume is a directory which is accessible to the containers in a pod.
+You can attach persisting volume to your container.
+
+The volumes that are created through Kubernetes is not limited to any container. It supports any or all the containers deployed inside the pod of Kubernetes. A key advantage of Kubernetes volume is, it supports different kind of storage wherein the pod can use multiple of them at the same time.
+
+### Storage Classes
+A StorageClass provides a way for administrators to describe the “classes” of storage they offer. Different classes might map to quality-of-service levels, or to backup policies, or to arbitrary policies determined by the cluster administrators.
