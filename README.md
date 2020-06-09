@@ -230,6 +230,18 @@ A job in Kubernetes is a supervisor for pods carrying out batch processes, that 
 ### Pods
 A pod is a collection of containers sharing a network and mount namespace and is the basic unit of deployment in Kubernetes. All containers in a pod are scheduled on the same node.
 
-<a><img src="images/replica-sets.png"></a>
+<a><img src="images/pods.png"></a>
 
+### Service
+It can be defined as an abstraction on the top of the pod which provides a single IP address and DNS name by which pods can be accessed.
+A Service enables network access to a set of Pods in Kubernetes.\
+Service is able to be accessed from 4 types:
 
+* ClusterIP – The default value. The service is only accessible from within the Kubernetes cluster – you can’t make requests to your Pods from outside the cluster!
+* NodePort – This makes the service accessible on a static port on each Node in the cluster. This means that the service can handle requests that originate from outside the cluster.
+* LoadBalancer – The service becomes accessible externally through a cloud provider's load balancer functionality. GCP, AWS, Azure, and OpenStack offer this functionality. The cloud provider will create a load balancer, which then automatically routes requests to your Kubernetes Service
+
+### Ingress
+An Ingress is an object that allows access to your Kubernetes services from outside the Kubernetes cluster. You configure access by creating a collection of rules that define which inbound connections reach which services.
+
+<a><img src="ingress/pods.png"></a>
