@@ -243,5 +243,6 @@ Service is able to be accessed from 4 types:
 
 ### Ingress
 An Ingress is an object that allows access to your Kubernetes services from outside the Kubernetes cluster. You configure access by creating a collection of rules that define which inbound connections reach which services.
-
+<h1 align="center">
 <a><img src="images/ingress.png" width="400" height="400"></a>
+</h1>
