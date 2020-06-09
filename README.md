@@ -197,3 +197,29 @@ Let's say whenever we add a node in the cluster and want few containers to be pr
 * running a cluster storage daemon on every node
 * running a logs collection daemon on every node
 * running a node monitoring daemon on every node
+
+### Deployements
+A deployment is a supervisor for pods, giving you fine-grained control over how and when a new pod version is rolled out as well as rolled back to a previous state.
+
+In Kubernetes there are a few different ways to release an application, it is necessary to choose the right strategy to make your infrastructure reliable during an application update few of them are below.
+
+* recreate: terminate the old version and release the new one
+* ramped: release a new version on a rolling update fashion, one after the other
+* blue/green: release a new version alongside the old version then switch traffic
+* canary: release a new version to a subset of users, then proceed to a full rollout
+
+### Replica Sets
+This is responsible to ensure n number of pod should be running in the perticular deployment.
+> In kube-system namespace you can see for a deployment the replica sets are pointing to 2, Here 2 pods are running.
+
+<a><img src="images/replica-sets.png"></a>
+
+**Exercise**
+```
+ecdd3f31267c        bf261d157914             "/coredns -conf /etc…"   28 minutes ago      Up 27 minutes                           k8s_coredns_coredns-5644d7b6d9-nbwxl_kube-system_9b85f34b-38fa-4b3b-b7bc-dfeb0add6306_0
+```
+If I delete this one of the coredns pod manually it should bring it up again to maintain 2 replica sets.\
+Now If I do **docker ps** again , you'll see the coredns is brought up again.
+```
+964626fe7a76        bf261d157914             "/coredns -conf /etc…"   23 seconds ago      Up 19 seconds                           k8s_coredns_coredns-5644d7b6d9-nbwxl_kube-system_9b85f34b-38fa-4b3b-b7bc-dfeb0add6306_1
+```
