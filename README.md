@@ -246,3 +246,17 @@ An Ingress is an object that allows access to your Kubernetes services from outs
 <h1 align="center">
 <a><img src="images/ingress.png" width="400" height="400"></a>
 </h1>
+
+### ConfigMap
+ConfigMap is configuration key-value pain in the form of storage in K8s. It keeps the confiuration seperate from your application.\
+It is used for Store connection strings, public credentials, hostnames, and URLs.
+
+You can have multiple ConfigMaps, one for each environment.
+
+### Persistent Volume
+Data in that volume and file system will be destroyed when the pod is restarted. To solve this Persistent volume , Persistent volumes are long-term storage in your Kubernetes cluster.
+
+## Secrets
+Secrets can be defined as Kubernetes objects used to store sensitive data such as user name and passwords with encryption.\
+Two ways to create secrets are .txt and .yaml files
+
