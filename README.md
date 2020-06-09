@@ -223,3 +223,13 @@ Now If I do **docker ps** again , you'll see the coredns is brought up again.
 ```
 964626fe7a76        bf261d157914             "/coredns -conf /etc…"   23 seconds ago      Up 19 seconds                           k8s_coredns_coredns-5644d7b6d9-nbwxl_kube-system_9b85f34b-38fa-4b3b-b7bc-dfeb0add6306_1
 ```
+
+### Kuberneters Jobs
+A job in Kubernetes is a supervisor for pods carrying out batch processes, that is a process that runs for a certain time to completion.
+
+### Pods
+A pod is a collection of containers sharing a network and mount namespace and is the basic unit of deployment in Kubernetes. All containers in a pod are scheduled on the same node.
+
+<a><img src="images/replica-sets.png"></a>
+
+
