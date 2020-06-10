@@ -260,3 +260,6 @@ Data in that volume and file system will be destroyed when the pod is restarted.
 Secrets can be defined as Kubernetes objects used to store sensitive data such as user name and passwords with encryption.\
 Two ways to create secrets are .txt and .yaml files
 
+### Myfirstapp
+Creating a first deployment manually from the Dashboard, You can create the resource by clicking on the right top plus icon the K8s dashboard.
+<a><img src="images/myfirstapp.png"></a>
