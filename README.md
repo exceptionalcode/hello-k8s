@@ -263,3 +263,6 @@ Two ways to create secrets are .txt and .yaml files
 ### Myfirstapp
 Creating a first deployment manually from the Dashboard, You can create the resource by clicking on the right top plus icon the K8s dashboard.
 <a><img src="images/myfirstapp.png"></a>
+Here we made an deployemnt for ngnix where we have assigned 3 pods to it and service as external.
+<a><img src="images/myfirstapp-service.png"></a>
+Above you'll get and external endpoint to access your app in services
