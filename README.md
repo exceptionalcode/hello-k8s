@@ -266,3 +266,69 @@ Creating a first deployment manually from the Dashboard, You can create the reso
 Here we made an deployemnt for ngnix where we have assigned 3 pods to it and service as external.
 <a><img src="images/myfirstapp-service.png"></a>
 Above you'll get and external endpoint to access your app in services
+
+
+### Create Resources using YAML
+```
+# What is the version of your resource?
+apiVersion: apps/v1
+
+# What kind of resource you want ? Deployment
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+ # A deployment's specification really only 
+ # has a few useful options    
+spec:
+# A deployment's specification really only 
+# has a few useful options   
+ 
+# 1. How many copies of each pod do we want?
+  replicas: 4
+  
+# 3. Which pods are managed by this deployment?  
+  selector:
+  
+# This must match the labels we set on the pod!  
+    matchLabels:
+      app: nginx
+
+# This template field is a regular pod configuration 
+# nested inside the deployment spec      
+  template:
+    metadata:
+# Set labels on the pod.
+# This is used in the deployment selector.    
+      labels:
+        app: nginx
+        
+# This is used to set containers specs        
+    spec:
+      containers:
+      - name: nginxpod
+        image: nginx
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+# What kind of resource you want ? Service
+kind: Service
+metadata:
+  name: webservice
+  labels:
+    app: nginx
+# Spec for the service    
+spec:
+
+# On what port and protocol service will be exposed
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    app: nginx
+# What type of service is it ? LoadBalancer(Exposed to external world)   
+  type: LoadBalancer
+```
+> Name this file as firtapp.yaml, In a single YAML file we are creating 2 resources  deployment and service seperated '---'
