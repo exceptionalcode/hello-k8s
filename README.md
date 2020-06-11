@@ -433,3 +433,9 @@ $ kubectl describe rs <rs-name>
 $ kubectl scale deployment <deployment-name> --replicas=10
 ```
 > We can scale up or down the replicas from command line
+
+
+### Rollback Deployment
+```
+$ kubectl rollout undo deployment <deployment-name>
+```
