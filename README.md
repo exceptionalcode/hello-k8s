@@ -350,6 +350,11 @@ $ kubectl get deployment
 NAME               READY   UP-TO-DATE   AVAILABLE   AGE
 nginx-deployment   4/4     4            4           22h
 ```
+To get any specific deployment file 
+```
+$ kubectl get deployment nginx-deployment -o yaml
+```
+> This will show you deployment file content in yaml format
 
 ### Edit Deployment
 To edit the current deployment use below command:
@@ -357,3 +362,34 @@ To edit the current deployment use below command:
 ```
 $ kubectl edit deployment/ngnix-deployment
 ```
+
+### Service Resources
+List Service Resources
+```
+$ kubectl get service
+NAME         TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+kubernetes   ClusterIP      10.96.0.1       <none>        443/TCP        7d
+webservice   LoadBalancer   10.105.78.178   localhost     80:30903/TCP   23h
+```
+To get any specific service file 
+```
+$ kubectl get service webservice -o yaml
+```
+> This will show you service file content in yaml format
+
+
+### Edit Service
+To edit the current service use below command:
+
+```
+$ kubectl edit service/webservice
+```
+
+### Delete Resources
+```
+$ kubectl delete -f firstapp.yaml
+deployment.apps "nginx-deployment" deleted
+service "webservice" deleted
+```
+> With this all the resource created by your resource yaml file will be deleted at once
+
