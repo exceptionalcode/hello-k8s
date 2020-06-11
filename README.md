@@ -336,7 +336,7 @@ Two ways to create these resources are :
 * Create (Once create will throw an error) 
 * Apply (Either you can create or apply changes after updation)
 
-Commands:
+Commands to create and apply changes on resources:
 ```
 $ kubectl create -f firstapp.yaml
             OR
