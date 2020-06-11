@@ -393,3 +393,28 @@ service "webservice" deleted
 ```
 > With this all the resource created by your resource yaml file will be deleted at once
 
+
+### Update and set image in Deployment
+Command:
+kubectl set image deployment/<deploymentname> <podname>=<image>
+```
+$ kubectl set image deployment/nginx-deployment nginxpod=nginx:1.18.0
+```
+
+
+### Deployment Status
+```
+$ kubectl rollout status deploy/nginx-deployment
+deployment "nginx-deployment" successfully rolled out
+```
+> If it is huge deployment you can track status by above command
+
+
+### Replica sets
+List the replica sets
+```
+$ kubectl get rs
+
+NAME                          DESIRED   CURRENT   READY   AGE
+nginx-deployment-f9b5bfd97    3         3         3       4m50s
+```
