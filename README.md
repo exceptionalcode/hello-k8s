@@ -416,5 +416,18 @@ List the replica sets
 $ kubectl get rs
 
 NAME                          DESIRED   CURRENT   READY   AGE
+nginx-deployment-7bc797cb79   0         0         0       13m
 nginx-deployment-f9b5bfd97    3         3         3       4m50s
+
 ```
+
+Detail information for any replica set
+```
+$ kubectl describe rs <rs-name>
+```
+
+### Scale Replica Sets
+```
+$ kubectl scale deployment <deployment-name> --replicas=10
+```
+> We can scale up or down the replicas from command line
