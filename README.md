@@ -340,5 +340,20 @@ Commands to create and apply changes on resources:
 ```
 $ kubectl create -f firstapp.yaml
             OR
-$ kubectl apply -f firstapp.yaml            
+$ kubectl apply -f firstapp.yaml  (recommended to user)          
+```
+### Deployement Resources
+List deployment resources
+```
+$ kubectl get deployment
+
+NAME               READY   UP-TO-DATE   AVAILABLE   AGE
+nginx-deployment   4/4     4            4           22h
+```
+
+### Edit Deployment
+To edit the current deployment use below command:
+
+```
+$ kubectl edit deployment/ngnix-deployment
 ```
