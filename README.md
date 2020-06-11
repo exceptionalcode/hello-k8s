@@ -332,3 +332,13 @@ spec:
   type: LoadBalancer
 ```
 > Name this file as firtapp.yaml, In a single YAML file we are creating 2 resources  deployment and service seperated '---'
+Two ways to create these resources are :
+* Create (Once create will throw an error) 
+* Apply (Either you can create or apply changes after updation)
+
+Commands:
+```
+$ kubectl create -f firstapp.yaml
+            OR
+$ kubectl apply -f firstapp.yaml            
+```
