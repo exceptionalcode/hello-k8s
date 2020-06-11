@@ -435,7 +435,27 @@ $ kubectl scale deployment <deployment-name> --replicas=10
 > We can scale up or down the replicas from command line
 
 
+### History of deployments
+```
+$ kubectl rollout history deploy/nginx-deployment
+deployment.apps/nginx-deployment
+REVISION  CHANGE-CAUSE
+2         <none>
+3         <none>
+```
+> Since we have not given changes cause in deployment it is saying none\
+> If you want to add change cause just add **--record** while deployment
+
 ### Rollback Deployment
+Rollback to exact previous verison od deployment:
 ```
 $ kubectl rollout undo deployment <deployment-name>
 ```
+
+To any specific revision or history you want to roll back :
+```
+$ kubectl rollout undo deploy/<deployement-name> --to-revision=<number_of_revision>
+```
+> K8s maintains revision history of 10 by default
+
+
