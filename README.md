@@ -458,4 +458,12 @@ $ kubectl rollout undo deploy/<deployement-name> --to-revision=<number_of_revisi
 ```
 > K8s maintains revision history of 10 by default
 
+### Pause Deployment
+```
+$ kubectl rollout pause deploy/<deployment-name>
+```
 
+### Resume deployment
+```
+$ kubectl rollout resume deploy/<deployment-name>
+```
