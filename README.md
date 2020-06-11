@@ -396,7 +396,9 @@ service "webservice" deleted
 
 ### Update and set image in Deployment
 Command:
+```
 kubectl set image deployment/<deploymentname> <podname>=<image>
+```
 ```
 $ kubectl set image deployment/nginx-deployment nginxpod=nginx:1.18.0
 ```
