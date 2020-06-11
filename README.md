@@ -463,7 +463,44 @@ $ kubectl rollout undo deploy/<deployement-name> --to-revision=<number_of_revisi
 $ kubectl rollout pause deploy/<deployment-name>
 ```
 
-### Resume deployment
+### Resume Deployment
 ```
 $ kubectl rollout resume deploy/<deployment-name>
 ```
+
+### Pod Logs
+```
+$ kubectl logs <podname> 
+```
+> This is going to print the particular logs of a pod
+
+### Run common on a Pod
+```
+$ kubectl exec <podname> -- ls /var
+```
+> Here we are executing -- ls /var , listing out var for a particular pod
+
+To take shell of the container
+```
+$ kubectl exec -it <podname> -- /bin/bash
+```
+> This will give you an interactive shell of container
+
+
+### K86 Autoscale containers
+```
+$ kubectl autoscale deploy/<deployment-name> --min=6 --max=15 --cpu-percent=80 
+```
+> It says when my cpu consumption goes to 80 scale it up till 15 max and keep min as 6.
+
+### Pod HPA(Horizontal Pod Auto Scaler)
+To Describe HPA:
+```
+$ kubectl get hpa
+```
+
+If you want to edit HPA:
+```
+$ kubectl edit hpa <hpa-name> 
+```
+> Here then you can update minReplicas and maxReplicas
