@@ -504,3 +504,29 @@ If you want to edit HPA:
 $ kubectl edit hpa <hpa-name> 
 ```
 > Here then you can update minReplicas and maxReplicas
+
+### Cron Job
+CronJobs are useful for creating periodic and recurring tasks, like running backups or sending emails.
+```
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: testcronjob
+spec: 
+  schedule: "*/2 * * * *" # for every 2 min
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: testcronjob 
+            image: bash
+            command: ["echo", "hello k8s from cron"]
+          restartPolicy: OnFailure # restart if on failure
+```
+Command to run:
+```
+$ kubectl apply -f cron.yaml
+cronjob.batch/testcronjob created
+```
+<a><img src="images/cron.png"></a>
