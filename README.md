@@ -530,3 +530,30 @@ $ kubectl apply -f cron.yaml
 cronjob.batch/testcronjob created
 ```
 <a><img src="images/cron.png"></a>
+
+Get cron jobs:
+```
+$ kubectl get cronjobs
+NAME          SCHEDULE      SUSPEND   ACTIVE   LAST SCHEDULE   AGE
+testcronjob   */2 * * * *   False     0        31s             12m
+```
+Get Job :
+```
+$ kubectl get jobs
+NAME                     COMPLETIONS   DURATION   AGE
+testcronjob-1591978320   1/1           12s        5m32s
+testcronjob-1591978440   1/1           14s        3m30s
+testcronjob-1591978560   1/1           12s        88s
+```
+
+Get pod running for above job:
+```
+$ kubectl get pods --selector=job-name=testcronjob-1591978440
+NAME                           READY   STATUS      RESTARTS   AGE
+testcronjob-1591978440-6nmjq   0/1     Completed   0          5m9s
+```
+Get logs from the pod :
+```
+$ kubectl logs testcronjob-1591978440-6nmjq
+hello k8s from cron
+```
