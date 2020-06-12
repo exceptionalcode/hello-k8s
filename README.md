@@ -332,3 +332,175 @@ spec:
   type: LoadBalancer
 ```
 > Name this file as firtapp.yaml, In a single YAML file we are creating 2 resources  deployment and service seperated '---'
+Two ways to create these resources are :
+* Create (Once create will throw an error) 
+* Apply (Either you can create or apply changes after updation)
+
+Commands to create and apply changes on resources:
+```
+$ kubectl create -f firstapp.yaml
+            OR
+$ kubectl apply -f firstapp.yaml  (recommended to user)          
+```
+### Deployement Resources
+List deployment resources
+```
+$ kubectl get deployment
+
+NAME               READY   UP-TO-DATE   AVAILABLE   AGE
+nginx-deployment   4/4     4            4           22h
+```
+To get any specific deployment file 
+```
+$ kubectl get deployment nginx-deployment -o yaml
+```
+> This will show you deployment file content in yaml format
+
+### Edit Deployment
+To edit the current deployment use below command:
+
+```
+$ kubectl edit deployment/ngnix-deployment
+```
+
+### Service Resources
+List Service Resources
+```
+$ kubectl get service
+NAME         TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+kubernetes   ClusterIP      10.96.0.1       <none>        443/TCP        7d
+webservice   LoadBalancer   10.105.78.178   localhost     80:30903/TCP   23h
+```
+To get any specific service file 
+```
+$ kubectl get service webservice -o yaml
+```
+> This will show you service file content in yaml format
+
+
+### Edit Service
+To edit the current service use below command:
+
+```
+$ kubectl edit service/webservice
+```
+
+### Delete Resources
+```
+$ kubectl delete -f firstapp.yaml
+deployment.apps "nginx-deployment" deleted
+service "webservice" deleted
+```
+> With this all the resource created by your resource yaml file will be deleted at once
+
+
+### Update and set image in Deployment
+Command:
+```
+kubectl set image deployment/<deploymentname> <podname>=<image>
+```
+```
+$ kubectl set image deployment/nginx-deployment nginxpod=nginx:1.18.0
+```
+
+
+### Deployment Status
+```
+$ kubectl rollout status deploy/nginx-deployment
+deployment "nginx-deployment" successfully rolled out
+```
+> If it is huge deployment you can track status by above command
+
+
+### Replica sets
+List the replica sets
+```
+$ kubectl get rs
+
+NAME                          DESIRED   CURRENT   READY   AGE
+nginx-deployment-7bc797cb79   0         0         0       13m
+nginx-deployment-f9b5bfd97    3         3         3       4m50s
+
+```
+
+Detail information for any replica set
+```
+$ kubectl describe rs <rs-name>
+```
+
+### Scale Replica Sets
+```
+$ kubectl scale deployment <deployment-name> --replicas=10
+```
+> We can scale up or down the replicas from command line
+
+
+### History of deployments
+```
+$ kubectl rollout history deploy/nginx-deployment
+deployment.apps/nginx-deployment
+REVISION  CHANGE-CAUSE
+2         <none>
+3         <none>
+```
+> Since we have not given changes cause in deployment it is saying none\
+> If you want to add change cause just add **--record** while deployment
+
+### Rollback Deployment
+Rollback to exact previous verison od deployment:
+```
+$ kubectl rollout undo deployment <deployment-name>
+```
+
+To any specific revision or history you want to roll back :
+```
+$ kubectl rollout undo deploy/<deployement-name> --to-revision=<number_of_revision>
+```
+> K8s maintains revision history of 10 by default
+
+### Pause Deployment
+```
+$ kubectl rollout pause deploy/<deployment-name>
+```
+
+### Resume Deployment
+```
+$ kubectl rollout resume deploy/<deployment-name>
+```
+
+### Pod Logs
+```
+$ kubectl logs <podname> 
+```
+> This is going to print the particular logs of a pod
+
+### Run common on a Pod
+```
+$ kubectl exec <podname> -- ls /var
+```
+> Here we are executing -- ls /var , listing out var for a particular pod
+
+To take shell of the container
+```
+$ kubectl exec -it <podname> -- /bin/bash
+```
+> This will give you an interactive shell of container
+
+
+### K86 Autoscale containers
+```
+$ kubectl autoscale deploy/<deployment-name> --min=6 --max=15 --cpu-percent=80 
+```
+> It says when my cpu consumption goes to 80 scale it up till 15 max and keep min as 6.
+
+### Pod HPA(Horizontal Pod Auto Scaler)
+To Describe HPA:
+```
+$ kubectl get hpa
+```
+
+If you want to edit HPA:
+```
+$ kubectl edit hpa <hpa-name> 
+```
+> Here then you can update minReplicas and maxReplicas
