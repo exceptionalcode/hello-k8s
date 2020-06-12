@@ -14,7 +14,7 @@ spec:
 # has a few useful options   
  
 # 1. How many copies of each pod do we want?
-  replicas: 4
+  replicas: 3
   
 # 3. Which pods are managed by this deployment?  
   selector:
