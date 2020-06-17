@@ -577,3 +577,12 @@ data:
     client=opensource
 ```
 > Then, create the ConfigMap in the cluster using kubectl apply -f config-map.yaml.
+
+You can also create config map from a file to do that :\
+For example create a file redis-config 
+```
+maxmemory 2mb
+maxmemory-policy allkeys-lru
+```
+To apply:\
+kubectl create configmap redis --from-file=redis-config
