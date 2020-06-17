@@ -557,3 +557,23 @@ Get logs from the pod :
 $ kubectl logs testcronjob-1591978440-6nmjq
 hello k8s from cron
 ```
+
+### ConfigMap
+A ConfigMap stores configuration settings that your Kubernetes Pods consume.
+A ConfigMap is a dictionary of key-value pairs that store configuration settings for your applications.
+
+This YAML creates a ConfigMap with the value database set to mysql, and database_uri, and keys set to the values in the YAML below:
+```
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: exampleconfigmap
+data:
+  database: mysql
+  database_url: mysql://localhost:3306
+  keys: |
+    name=kubernetes
+    program=training
+    client=spglobal
+```
+> Then, create the ConfigMap in the cluster using kubectl apply -f config-map.yaml.
