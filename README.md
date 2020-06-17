@@ -573,7 +573,7 @@ data:
   database_url: mysql://localhost:3306
   keys: |
     name=kubernetes
-    program=training
-    client=spglobal
+    program=k8s-hello-kit
+    client=opensource
 ```
 > Then, create the ConfigMap in the cluster using kubectl apply -f config-map.yaml.
