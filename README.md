@@ -586,3 +586,34 @@ maxmemory-policy allkeys-lru
 ```
 To apply:\
 kubectl create configmap redis --from-file=redis-config
+
+### Multicontainer Pod
+We will see how to have multiple container in a Pod.
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: multicontainer
+spec:
+  volumes: 
+  - name: html
+    emptyDir: {}
+  containers:
+  - name: 1st
+    image: nginx
+    volumeMounts:
+    - name: html
+      mountPath: /usr/share/nginx/html
+  - name: 2nd
+    image: debian
+    volumeMounts:
+    - name: html
+      mountPath: /html
+    command: ["/bin/sh", "-c"] 
+    args:
+      - while true; do
+          date >> /html/index.html;
+          sleep 1;
+        done
+```
+<a><img src="images/multicontainer.png"></a>
