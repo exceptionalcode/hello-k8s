@@ -616,4 +616,8 @@ spec:
           sleep 1;
         done
 ```
+You can see on dashboard 2 containers running in single pod.
+<a><img src="images/multicontainerpod.png"></a>
+
+Here we will go inside the 1st container:
 <a><img src="images/multicontainer.png"></a>
