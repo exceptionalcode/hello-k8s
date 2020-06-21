@@ -684,3 +684,20 @@ $ helm list --all-namespaces
 NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
 firstapp        default         1               2020-06-21 23:14:10.9241688 +0530 IST   deployed        firsttemplate-0.1.0     1.16.0
 ```
+**Upgrade Application**\
+If you want to upgrate the deployment of your application version from 1.16.0 to 1.17.0, save the changes in Chart.yaml appVersion to 1.17.0
+```
+$ helm upgrade firstapp ./firsttemplate 
+
+Release "firstapp" has been upgraded. Happy Helming!
+NAME: firstapp
+LAST DEPLOYED: Sun Jun 21 23:40:05 2020
+NAMESPACE: default
+STATUS: deployed
+REVISION: 2
+NOTES:
+1. Get the application URL by running these commands:
+  export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/name=firsttemplate,app.kubernetes.io/instance=firstapp" -o jsonpath="{.items[0].metadata.name}")
+  echo "Visit http://127.0.0.1:8080 to use your application"
+  kubectl --namespace default port-forward $POD_NAME 8080:80
+```
