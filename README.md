@@ -637,5 +637,26 @@ $ helm version
 
 version.BuildInfo{Version:"v3.2.4", GitCommit:"0ad800ef43d3b826f31a5ad8dfbb4fe05d143688", GitTreeState:"clean", GoVersion:"go1.13.12"}
 ```
+**Create Template**\
+```
+$ helm create firsttemplate
+```
+> Once you run this command it is going to create set of directory
+Please note that the name of the chart provided here will be the name of the directory where the chart is created and stored.
 
+Let's quickly see the directory structure created for us:
+
+1. firsttemplate /
+2. Chart.yaml
+3. values.yaml
+4. templates /
+5. charts /
+6. .helmignore
+Let's understand the relevance of these files and folders created for us:
+
+* Chart.yaml: This is the main file that contains the description of our chart
+* values.yaml: this is the file that contains the default values for our chart
+* templates: This is the directory where Kubernetes resources are defined as templates
+* charts: This is an optional directory that may contain sub-charts
+* .helmignore: This is where we can define patterns to ignore when packaging (similar in concept to .gitignore)
 
