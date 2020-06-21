@@ -676,3 +676,11 @@ NOTES:
   kubectl --namespace default port-forward $POD_NAME 8080:80
 ```
 > With the above install command helm will deploy the first app
+
+**List  all hellm deployments**
+```
+$ helm list --all-namespaces
+
+NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
+firstapp        default         1               2020-06-21 23:14:10.9241688 +0530 IST   deployed        firsttemplate-0.1.0     1.16.0
+```
