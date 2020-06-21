@@ -621,3 +621,21 @@ You can see on dashboard 2 containers running in single pod.
 
 Here we will go inside the 1st container:
 <a><img src="images/multicontainer.png"></a>
+
+### Helm
+Helm is a package manager for Kubernetes applications.
+
+**Installation**\
+The quickest way to install helm on Windows is using [Chocolaty](https://chocolatey.org/), a package manager for Windows platforms.
+Using Chocolaty, it is a simple one-line command to install Helm:
+```
+$ choco install kubernetes-helm
+```
+To check 
+```
+$ helm version
+
+version.BuildInfo{Version:"v3.2.4", GitCommit:"0ad800ef43d3b826f31a5ad8dfbb4fe05d143688", GitTreeState:"clean", GoVersion:"go1.13.12"}
+```
+
+
